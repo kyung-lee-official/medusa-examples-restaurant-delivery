@@ -1,3 +1,5 @@
+import DeliveryModuleService from "../service";
+
 export enum DeliveryStatus {
 	PENDING = "pending",
 	RESTAURANT_DECLINED = "restaurant_declined",
