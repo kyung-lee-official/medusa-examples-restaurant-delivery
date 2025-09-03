@@ -17,5 +17,8 @@ module.exports = defineConfig({
 		{
 			resolve: "./src/modules/restaurant",
 		},
+		{
+			resolve: "./src/modules/delivery",
+		},
 	],
 });
