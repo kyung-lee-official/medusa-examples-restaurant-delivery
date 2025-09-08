@@ -11,5 +11,10 @@ export default defineMiddlewares({
 				}),
 			],
 		},
+		{
+			method: ["POST", "DELETE"],
+			matcher: "/restaurants/:id/**",
+			middlewares: [authenticate(["restaurant", "user"], "bearer")],
+		},
 	],
 });
