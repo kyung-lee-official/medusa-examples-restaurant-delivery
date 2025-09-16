@@ -1,4 +1,5 @@
 import { authenticate, defineMiddlewares } from "@medusajs/framework/http";
+import { deliveriesMiddlewares } from "./deliveries/[id]/middlewares";
 
 export default defineMiddlewares({
 	routes: [
@@ -16,5 +17,6 @@ export default defineMiddlewares({
 			matcher: "/restaurants/:id/**",
 			middlewares: [authenticate(["restaurant", "user"], "bearer")],
 		},
+		...(deliveriesMiddlewares.routes ?? []),
 	],
 });

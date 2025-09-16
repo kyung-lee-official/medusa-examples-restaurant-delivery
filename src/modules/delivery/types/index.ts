@@ -1,4 +1,6 @@
 import DeliveryModuleService from "../service";
+import { InferTypeOf } from "@medusajs/framework/types";
+import { Delivery } from "../models/delivery";
 
 export enum DeliveryStatus {
 	PENDING = "pending",
@@ -16,3 +18,10 @@ declare module "@medusajs/framework/types" {
 		deliveryModuleService: DeliveryModuleService;
 	}
 }
+
+export type Delivery = InferTypeOf<typeof Delivery>;
+
+export type UpdateDelivery = Partial<Omit<Delivery, "driver">> & {
+	id: string;
+	driver_id?: string;
+};
