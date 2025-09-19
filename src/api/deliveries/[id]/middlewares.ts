@@ -10,5 +10,9 @@ export const deliveriesMiddlewares = defineMiddlewares({
 				isDeliveryRestaurant,
 			],
 		},
+		{
+			matcher: "/deliveries/:id/claim",
+			middlewares: [authenticate("driver", "bearer")],
+		},
 	],
 });
